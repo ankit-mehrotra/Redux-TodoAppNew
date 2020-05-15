@@ -1,0 +1,12 @@
+GET http://localhost:4000/posts
+Authorization: Bearer e1yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjVlODU3OTY4NDhjMzYwMjU3NTBjZTgxYyIsIm5hbWUiOiJBbmtpdCIsImVtYWlsIjoiYW5raXQtbWVocm90cmE4NUB5YWhvby5jb20ifSwiaWF0IjoxNTg1ODI0OTYzLCJleHAiOjE1ODU4NDY1NjN9.U7tJi_ACHRUfK4n7r11zqXJ70VmPj92Tpl-fFtG9uhw
+
+###
+POST http://localhost:4000/signIn
+Content-Type: application/json
+
+{
+    "email":"ankit-mehrotra85@yahoo.com",
+    "name":"Ankit",
+    "password": "1234567"
+}

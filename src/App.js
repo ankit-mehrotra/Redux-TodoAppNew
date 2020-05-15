@@ -1,25 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Login } from './components/Login';
+import Nav from './components/Nav';
+import { PrivateRoute } from './components/PrivateRoute';
+import About from './components/About';
+import Contact from './components/Contact';
+import { BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import './App.css';
+import { AuthProvider } from './components/AuthProvider';
+import { SignUp } from './components/SignUp';
+import { TodoApp } from './components/App';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+    <Router>
+      <Nav/>
+      <TodoApp/>
+      <Switch>
+        <Route exact path='/' component={Login}/>
+        <Route exact path='/signUp' component={SignUp}/>
+        <PrivateRoute component={Contact} path='/home' exact />
+        <PrivateRoute path='/about' component= {About} exact/>
+      </Switch>
+     </Router>
+     </AuthProvider>
   );
 }
 
